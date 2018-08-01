@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-aks-cosmosdb-po-api",
+  "version": "1.0.0",
+  "description": "A simple nodejs application which exposes a purchase order api. The purchase orders are stored in Azure CosmosDB.  The application can be containerized and deployed to an AKS instance.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "devstart": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ganesh.radhakrishnan@microsoft.com",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.2",
+    "debug": "^2.6.9",
+    "documentdb": "^1.14.5",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}

@@ -1,0 +1,1 @@
+curl -i -X POST -H "Content-Type:application/json" -d "{ \"item\" : \"48-inch O-Ring Chain\", \"price\" : 18.50, \"quantity\" : 80, \"description\" : \"O-Ring Chain\", \"cname\" : \"Acme Corporation\", \"dcode\" : \"8%\", \"origin\" : \"SAP\"}" http://localhost:8080/orders/create
