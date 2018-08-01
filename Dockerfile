@@ -1,4 +1,5 @@
 FROM node:8
+MAINTAINER Ganesh Radhakrishnan ganrad01@gmail.com
 
 # Create app directory
 WORKDIR /usr/src/app
