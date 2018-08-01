@@ -1,4 +1,4 @@
-# Use *Azure DevOps Projects* to deploy a containerized Express.js application 
+# Use *Azure DevOps Projects* to build and deploy a containerized Nodejs application 
 This project details the steps for deploying a *Express.js* application using the *Azure DevOps Project* feature.  This application exposes a simple REST API for manipulating (CRUD) *Purchase Orders* and the purchase order documents (JSON messages) are persisted in a *Azure CosmosDB* No-SQL database.
 
 With Azure DevOps Project, there are two options for building and deploying a containerized application 
