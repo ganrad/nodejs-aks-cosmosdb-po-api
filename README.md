@@ -52,6 +52,8 @@ Click on **Done**.  The *DevOps Project* wizard shall execute the following step
 
 The application can now be accessed via a browser at *[web app name].azurewebsites.net*.
 
-You can also examine the deployed build and release (CI/CD) pipelines in your VSTS account and Web App Service resources using the Azure Portal.
+2.  Examine the deployed build and release (CI/CD) pipelines in your VSTS account. Review Web App Service resources in Azure using the portal (or CLI).  Also, verify the application container image got pushed to a new Azure Container Registry (ACR) instance.
+
+3. Use the test scripts in the *test-scripts* folder of this project to fetch, add, update & delete purchase orders.  Update the REST API URLs in the scripts to point to your App Service end-point. The test scripts invoke the REST API's exposed by this Nodejs application.  Invoke the *test-scripts/insert-orders.sh* script from a terminal window (or a browser based REST Client such as Postman or ARC) to create purchase orders in the backend Azure CosmosDB document repository.  Verify the purchase order documents got created/updated/deleted in the Azure CosmosDB database via the Azure portal.  
 
 ### B] Deploy to Azure Kubernetes Service
