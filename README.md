@@ -50,7 +50,7 @@ Click on **Done**.  The *DevOps Project* wizard shall execute the following step
 - Provision build and release pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new container registry in Azure.
 - Provision and deploy the containerized application to a Web App Service on Linux.  The Web App Service will be provisioned in a App Service Plan.
 
-The application can now be accessed via a browser at *<web app name>.azurewebsites.net*.
+The application can now be accessed via a browser at *[web app name].azurewebsites.net*.
 
 You can also examine the deployed build and release (CI/CD) pipelines in your VSTS account and Web App Service resources using the Azure Portal.
 
