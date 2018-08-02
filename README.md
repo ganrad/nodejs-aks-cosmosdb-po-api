@@ -56,4 +56,6 @@ The application can now be accessed via a browser at *[web app name].azurewebsit
 
 3. Use the test scripts in the *test-scripts* folder of this project to fetch, add, update & delete purchase orders.  Update the REST API URLs in the scripts to point to your App Service end-point. The test scripts invoke the REST API's exposed by this Nodejs application.  Invoke the *test-scripts/insert-orders.sh* script from a terminal window (or a browser based REST Client such as Postman or ARC) to create purchase orders in the backend Azure CosmosDB document repository.  Verify the purchase order documents got created/updated/deleted in the Azure CosmosDB database via the Azure portal.  
 
+4. After you are done testing the application, you can delete the *Web App Service* via the Azure portal.  This will delete all artifacts created in VSTS and Azure.
+
 ### B] Deploy to Azure Kubernetes Service
