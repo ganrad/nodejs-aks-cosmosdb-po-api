@@ -26,7 +26,7 @@ In the next page, select *Build your own code* as shown in the screenshot below.
 
 ![alt tag](./images/A-02.PNG)
 
-On the *Code Repository* page, select *GitHub* and this repository which you forked earlier.  See screenshot below.  Click **Next**.
+On the *Code Repository* page, select *GitHub* and this repository which you forked earlier.  You may be prompted to login to your GitHub account with your credentials.  See screenshot below.  Click **Next**.
 
 ![alt tag](./images/A-03.PNG)
 
