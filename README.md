@@ -13,7 +13,7 @@ This application uses an *Azure CosmosDB* instance to persist the purchase order
 
 ![alt tag](./images/P-01.PNG)
 
-2. Fork this [GitHub repository](https://github.com/ganrad/k8s-springboot-data-rest) to **your** GitHub account.  After logging in to your GitHub account via a browser, click on **Fork** in the upper right hand corner to get a copy of this project added to your GitHub account.
+2. Fork this [GitHub repository](https://github.com/ganrad/nodejs-aks-cosmosdb-po-api) to **your** GitHub account.  After logging in to your GitHub account via a browser, click on **Fork** in the upper right hand corner to get a copy of this project added to your GitHub account.
 
 3. In the file **config.js**, specify the correct values for *config.host* and *config.authkey*.  Substitute the value of **URI** in **config.host** and **PRIMARY KEY** in **config.authkey**
 
