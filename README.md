@@ -15,9 +15,43 @@ This application uses an *Azure CosmosDB* instance to persist the purchase order
 
 2. Fork this [GitHub repository](https://github.com/ganrad/nodejs-aks-cosmosdb-po-api) to **your** GitHub account.  After logging in to your GitHub account via a browser, click on **Fork** in the upper right hand corner to get a copy of this project added to your GitHub account.
 
-3. In the file **config.js**, specify the correct values for *config.host* and *config.authkey*.  Substitute the value of **URI** in **config.host** and **PRIMARY KEY** in **config.authkey**
+3. In the file **config.js**, specify the correct values for *config.host* and *config.authkey* properties.  Substitute the value of **URI** in *config.host* and **PRIMARY KEY** in *config.authkey*.
 
 ### A] Deploy to Azure App Service on Linux
-This project details the steps for deploying a containerized Nodejs application on AKS using Dev Ops Projects. 
+1. Login to your account on Azure Portal, click on *All services* and search for *DevOps Projects* service. Add this service to your navigational pane by clicking on the *star* beside the service. Next, click on *DevOps Projects* to open the blade and click on **Add** to start the DevOps Project wizard.  See screenshot below.
+
+![alt tag](./images/A-01.PNG)
+
+In the next page, select *Build your own code* as shown in the screenshot below.  Then click **Next**.
+
+![alt tag](./images/A-02.PNG)
+
+On the *Code Repository* page, select *GitHub* and this repository which you forked earlier.  See screenshot below.  Click **Next**.
+
+![alt tag](./images/A-03.PNG)
+
+On the next page, click on **YES** for *Is app Dockerized* as shown below.  Click on **Next**.
+
+![alt tag](./images/A-04.PNG)
+
+On the *Application/Framework* page, select *Web App for Containers* as shown below.
+
+![alt tag](./images/A-05.PNG)
+
+Leave the value of *Dockerfile path* as is and specify **node app.js** as the value for *Startup Command*.  Then click **OK** and **Next**.
+
+![alt tag](./images/A-06.PNG)
+
+On the *Service* page, create a new or use an existing VSTS organization.  Then give the VSTS project a meaningful name.  Also, select an *Azure Subscription*, give a name for the *Web app* and specify the *Location* where the Azure resources will be deployed. See screenshot below.  Make a note of the *Web app name*.  
+
+![alt tag](./images/A-07.PNG)
+
+Click on **Done**.  The *DevOps Project* wizard shall execute the following steps
+- Provision build and release pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new container registry in Azure.
+- Provision and deploy the containerized application to a Web App Service on Linux.  The Web App Service will be provisioned in a App Service Plan.
+
+The application can now be accessed via a browser at *<web app name>.azurewebsites.net*.
+
+You can also examine the deployed build and release (CI/CD) pipelines in your VSTS account and Web App Service resources using the Azure Portal.
 
 ### B] Deploy to Azure Kubernetes Service
