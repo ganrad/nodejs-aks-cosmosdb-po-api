@@ -14,6 +14,10 @@ service:
   port: 80
   targetPort: 8080
 
+checks:
+  livenessInitialDelay: 5
+  livenessProbeDelay: 3600
+
 ingress:
   enabled: false
   annotations: {}
