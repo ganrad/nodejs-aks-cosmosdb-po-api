@@ -59,3 +59,38 @@ The application can now be accessed via a browser at *[web app name].azurewebsit
 4. After you are done testing the application, you can delete the *Web App Service* via the Azure portal.  This will delete all resources created in VSTS and Azure.
 
 ### B] Deploy to Azure Kubernetes Service
+1. Login to your account on Azure Portal, click on *All services* and search for *DevOps Projects* service. Add this service to your navigational pane by clicking on the *star* beside the service. Next, click on *DevOps Projects* to open the blade and click on **Add** to start the DevOps Project wizard.  See screenshot below.
+
+![alt tag](./images/A-01.PNG)
+
+In the next page, select *Build your own code* as shown in the screenshot below.  Then click **Next**.
+
+![alt tag](./images/A-02.PNG)
+
+On the *Code Repository* page, select *GitHub* and this repository which you forked earlier.  You may be prompted to login to your GitHub account with your credentials.  See screenshot below.  Click **Next**.
+
+![alt tag](./images/A-03.PNG)
+
+On the next page, click on **YES** for *Is app Dockerized* as shown below.  Click on **Next**.
+
+![alt tag](./images/A-04.PNG)
+
+On the *Application/Framework* page, select *Kubernetes Service* as shown below.
+
+![alt tag](./images/B-01.PNG)
+
+Leave the value of *Dockerfile path* as is and specify value **nodejs-cosmosdb-po-service** for *Path to Chart folder*. Then click **Ok** and **Next**.
+
+![alt tag](./images/B-02.PNG)
+
+On the *Service* page, create a new or use an existing VSTS organization.  (You should already have a VSTS Account!).  Give the VSTS project a meaningful name and select an *Azure Subscription*.  Leave the *Cluster Name* field as is, it should default to the value of the project name.   Specify the *Location* where the Azure resources will be deployed.  Make a note of the *Project name*.  Then click on *Change* as shown in the screen shot below.
+
+![alt tag](./images/B-03.PNG)
+
+Change the *Node count* to **1**.  You can either leave the other field values as is or change the default values if needed.  Then click **OK**.  See screenshot below.
+
+![alt tag](./images/B-04.PNG)
+
+Click on **Done**.  The *DevOps Project* wizard shall execute the following steps
+- Provision build and release pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new container registry instance in Azure.
+- Provision and deploy the containerized application to an AKS (Azure Kubernetes Service) instance on Azure.
