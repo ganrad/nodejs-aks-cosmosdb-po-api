@@ -2,7 +2,7 @@
 This project details the steps for deploying a *Express.js* application using the *Azure DevOps Project* feature.  This application exposes a simple REST API for manipulating (CRUD) *Purchase Orders* and the purchase order documents (JSON messages) are persisted in a *Azure CosmosDB* No-SQL database.
 
 With Azure DevOps Project, there are two options for building and deploying a containerized application 
-1.  [Azure App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro).  Refer to **Section [A]** in order to build and deploy this application to Azure App Service.
+1.  [Azure App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro).  Refer to **Section [A]** in order to build and deploy this application to [Web App for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/) on Azure App Service.
 2.  [Azure Kubernetes Service](https://azure.microsoft.com/en-us/services/kubernetes-service/).  Refer to **Section [B]** in order to build and deploy this application to AKS.
 
 Both options use DevOps CI/CD workflows in VSTS to build and deploy the containerized application.  The CI/CD workflows are automatically created by Azure DevOps Project.  We will examine both of these options for deploying our containerized application on Azure.
@@ -46,8 +46,8 @@ On the *Service* page, create a new or use an existing VSTS organization.  Then 
 ![alt tag](./images/A-07.PNG)
 
 Click on **Done**.  The *DevOps Project* wizard shall execute the following steps
-- Provision build and release pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new container registry in Azure.
-- Provision and deploy the containerized application to a Web App Service on Linux.  The Web App Service will be provisioned in a App Service Plan.
+- Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) instance.
+- Provision and deploy the containerized application to a Web App for Containers Service on Linux.  The Web App Service will be provisioned in a App Service Plan.
 
 The application can now be accessed via a browser at *[web app name].azurewebsites.net*.
 
@@ -94,7 +94,7 @@ Click on **Done**.  The *DevOps Project* wizard shall execute the following step
 - Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in VSTS and run the pipelines. The build pipeline will build an application container image and push the image to a new *Azure Container Registry* (ACR) instance.  Upon successful execution of the build pipeline, the release pipeline will be triggered. The release pipeline will use [Helm Package Manager](https://helm.sh/) to deploy the application to AKS.  Helm charts provided in this repository will be used to provision the containerized application to AKS.
 - Provision an AKS (Azure Kubernetes Service) instance on Azure.
 
-The release pipeline will attempt to deploy the containerized application to the newly created AKS instance.  However, the continuous deployment process (release pipeline) would fail.  We will learn why the deployment failed and resolve the issue in the next steps.
+The release pipeline will attempt to deploy the containerized application to the newly created AKS instance.  However, the continuous deployment process (release pipeline) shall fail.  We will learn why the deployment failed and resolve the issue in the next steps.
 
 It will take approximately 15-20 minutes (maybe more) to provision all the resources in VSTS and AKS.  So be patient and take a coffee break, perhaps treat yourself to a pastry!
 
@@ -125,6 +125,10 @@ Then copy the container registry and image name below **Tags** and save it to yo
 ![alt tag](./images/B-10.PNG)
 
 Save and commit this file.  The commit should trigger another CI build in VSTS and this time both the build and release pipelines should successfully complete.  As a result, the purchase order service should be deployed to the AKS instance on Azure.
+
+At this point, you want to take some time to examine all the resources which were provisioned in 
+- Azure : AKS, ACR and Load Balancer
+- VSTS : Build and Release pipelines
 
 5. Open the **Load Balancer** blade in Azure Portal to find the Public IP address of the application service endpoint.  See Screenshot below.
 
