@@ -8,8 +8,7 @@ With Azure DevOps Project, there are two options for building and deploying a co
 Both options use DevOps CI/CD workflows in VSTS to build and deploy the containerized application.  The CI/CD workflows are automatically created by Azure DevOps Project.  We will examine both of these options for deploying our containerized application on Azure.
 
 **PREREQUISITES**
-1. Deploy an Azure CosmosDB instance
-This application uses an *Azure CosmosDB* instance to persist the purchase orders.  Using the Azure Portal, create a new instance of Azure CosmosDB. Click on the 'Keys' blad and take a note (save) of the values for *URI* and *PRIMARY KEY* properties.  See screenshot below.
+1. This application uses an *Azure CosmosDB* instance to persist the purchase orders.  Using the Azure Portal, create a new instance of Azure CosmosDB. Click on the 'Keys' blade and take a note (save) of the values for *URI* and *PRIMARY KEY* properties.  See screenshot below.
 
 ![alt tag](./images/P-01.PNG)
 
