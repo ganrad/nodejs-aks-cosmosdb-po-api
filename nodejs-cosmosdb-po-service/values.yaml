@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nodejscosmosdb8c78.azurecr.io/nodejscosmosdb
+  repository: nodejscosmosdb84d8.azurecr.io/nodejscosmosdb
   tag: latest
   pullPolicy: Always
 
