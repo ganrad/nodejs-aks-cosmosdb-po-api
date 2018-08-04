@@ -79,7 +79,7 @@ On the *Application/Framework* page, select *Kubernetes Service* as shown below.
 
 ![alt tag](./images/B-01.PNG)
 
-Leave the value of *Dockerfile path* as is and specify value **/nodejs-cosmosdb-po-service** for *Path to Chart folder*. Then click **Ok** and **Next**.
+Leave the value of *Dockerfile path* as is and specify value **nodejs-cosmosdb-po-service** for *Path to Chart folder*. Then click **Ok** and **Next**.
 
 ![alt tag](./images/B-02.PNG)
 
