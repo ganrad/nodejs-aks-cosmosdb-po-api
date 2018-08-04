@@ -92,5 +92,58 @@ Change the *Node count* to **1**.  You can either leave the other field values a
 ![alt tag](./images/B-04.PNG)
 
 Click on **Done**.  The *DevOps Project* wizard shall execute the following steps
-- Provision build and release pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new container registry instance in Azure.
-- Provision and deploy the containerized application to an AKS (Azure Kubernetes Service) instance on Azure.
+- Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in VSTS and run the pipelines. The build pipeline will build an application container image and push the image to a new *Azure Container Registry* (ACR) instance.  Upon successful execution of the build pipeline, the release pipeline will be triggered. The release pipeline will use [Helm Package Manager](https://helm.sh/) to deploy the application to AKS.  Helm charts provided in this repository will be used to provision the containerized application to AKS.
+- Provision an AKS (Azure Kubernetes Service) instance on Azure.
+
+The release pipeline will attempt to deploy the containerized application to the newly created AKS instance.  However, the continuous deployment process (release pipeline) would fail (see below).
+
+It will take approximately 15-20 minutes (at the time of this writing) to provision all the resources in VSTS and AKS.  So be patient and take a coffee break, perhaps treat yourself to a pastry!
+
+Wait for the *Notification* panel in Azure portal to confirm that the deployment of all resources succeeded.  As soon as you get this message in the notification panel, proceed with the next steps.
+
+2. Login to your account on VSTS.  Click on *Builds* and edit the build pipeline (*nodejs-cosmosdb - CI*).  See screenshot below.
+
+![alt tag](./images/B-05.PNG)
+
+Under *Tasks* tab, click on task **Build an image** and check the box beside *Include Latest Tag*.  Repeat this step for the **Push an image** task as well.  See screenshot below.
+
+![alt tag](./images/B-06.PNG)
+
+3. Next, login to the Azure Portal and open the blade for **Container registries** by clicking on the service link on the navigational panel.  Click on the container registry *nodejscosmosdbxxxx* (your registry instance might have a different suffix).  See below.
+
+![alt tag](./images/B-07.PNG)
+
+Click on **Repositories** and then click on **nodejscosmosdb** as shown below.
+
+![alt tag](./images/B-08.PNG)
+
+Then copy the container image name and tag name below **Tags** and save it to your clipboard.  See screenshot below.
+
+![alt tag](./images/B-09.PNG)
+
+4. Login to your GitHub account and access your fork of this repository.  Edit file *nodejs-cosmosdb-po-service/values.yaml* and replace the value of attribute **repository** with the name repository name you copied in the previous step.  
+
+![alt tag](./images/B-10.PNG)
+
+Save and commit this file.  The commit should trigger another CI build in VSTS and this time both the build and release pipelines should successfully complete.  As a result, the purchase order service should be deployed to the AKS instance on Azure.
+
+5. Open the **Load Balancer** blade in Azure Portal to find the Public IP address of the application service endpoint.  See Screenshot below.
+
+![alt tag](./images/B-11.PNG)
+
+In the overview pane, click on **2 public IP addresses**.  
+
+![alt tag](./images/B-12.PNG)
+
+In the **Frontend IP configuration** pane, you should see two IP addresses.  Use either one of the IP addresses to access the purchase order service REST endpoint eg., http://<IP address>/orders
+
+6. Use the test scripts in the *test-scripts* folder of this project to fetch, add, update & delete purchase orders.  Update the REST API URLs in the scripts to point to your App Service end-point. The test scripts invoke the REST API's exposed by this Nodejs application.  Invoke the *test-scripts/insert-orders.sh* script from a terminal window (or a browser based REST Client such as Postman or ARC) to create purchase orders in the backend Azure CosmosDB document repository.  Verify the purchase order documents got created/updated/deleted in the Azure CosmosDB database via the Azure portal.  
+
+7. After you are done testing the application, you can use the Azure portal to delete the **Resource Group** where all the resources were deployed.
+
+![alt tag](./images/B-13.PNG)
+
+Congrats!!  You have successfully explored two options provided by **Azure DevOps Project** PaaS service for automating the build and deployment of a containerized Nodejs application on Azure.
+
+To sum it up, Azure DevOps Project allows application development teams to easily and quickly adopt DevOps (CI and CD) and deploy containerized applications written in a variety of programming languages on Azure.
+
