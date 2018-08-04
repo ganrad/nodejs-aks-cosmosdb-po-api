@@ -117,11 +117,11 @@ Click on **Repositories** and then click on **nodejscosmosdb** as shown below.
 
 ![alt tag](./images/B-08.PNG)
 
-Then copy the container registry name and image name below **Tags** and save it to your clipboard.  See screenshot below.
+Then copy the container registry and image name below **Tags** and save it to your clipboard.  See screenshot below.
 
 ![alt tag](./images/B-09.PNG)
 
-4. Login to your GitHub account and access your fork of this repository.  Edit file *nodejs-cosmosdb-po-service/values.yaml* and replace the value of attribute **repository** with the repository name you copied in the previous step.  
+4. Login to your GitHub account and access your fork of this repository.  Edit file *nodejs-cosmosdb-po-service/values.yaml* and replace the value of attribute **repository** with the container registry and image name you copied in the previous step.  
 
 ![alt tag](./images/B-10.PNG)
 
