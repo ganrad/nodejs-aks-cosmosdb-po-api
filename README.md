@@ -99,8 +99,8 @@ Both options use DevOps CI/CD workflows in VSTS to build and deploy the containe
    It will take approximately 15-20 minutes (maybe more) to provision all the resources in VSTS and AKS.  So be patient and take a coffee break, perhaps treat yourself to a pastry!
 
 2. Wait for the *Notification* panel in Azure portal to confirm that the deployment of all resources succeeded.  At this point, you want to take some time to examine all the resources which were provisioned in 
-   - Azure : DevOps Project, AKS, ACR and Load Balancer
-   - VSTS : Build and Release pipelines
+   - **Azure** : DevOps Project, AKS, ACR and Load Balancer
+   - **VSTS** : Build and Release pipelines
 
 3. Open the **Load Balancer** blade in Azure Portal to find the Public IP address of the application service endpoint.  See Screenshot below.
 
