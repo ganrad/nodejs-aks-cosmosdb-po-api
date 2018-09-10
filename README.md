@@ -10,7 +10,7 @@ Both options use DevOps CI/CD workflows in VSTS to build and deploy the containe
 **PREREQUISITES**
 1. This application uses an *Azure CosmosDB* instance to persist the purchase orders.  Using the Azure Portal, create a new instance of Azure CosmosDB. Click on the 'Keys' blade and take a note (save) of the values for *URI* and *PRIMARY KEY* properties.  See screenshot below.
 
-![alt tag](./images/P-01.PNG)
+   ![alt tag](./images/P-01.PNG)
 
 2. Fork this [GitHub repository](https://github.com/ganrad/nodejs-aks-cosmosdb-po-api) to **your** GitHub account.  After logging in to your GitHub account via a browser, click on **Fork** in the upper right hand corner to get a copy of this project added to your GitHub account.
 
@@ -19,39 +19,39 @@ Both options use DevOps CI/CD workflows in VSTS to build and deploy the containe
 ### A] Deploy to Azure App Service on Linux
 1. Login to your account on Azure Portal, click on *All services* and search for *DevOps Projects* service. Add this service to your navigational pane by clicking on the *star* beside the service. Next, click on *DevOps Projects* to open the blade and click on **Add** to start the DevOps Project wizard.  See screenshot below.
 
-![alt tag](./images/A-01.PNG)
+   ![alt tag](./images/A-01.PNG)
 
-In the next page, select *Build your own code* as shown in the screenshot below.  Then click **Next**.
+   In the next page, select *Build your own code* as shown in the screenshot below.  Then click **Next**.
 
-![alt tag](./images/A-02.PNG)
+   ![alt tag](./images/A-02.PNG)
 
-On the *Code Repository* page, select *GitHub* and this repository which you forked earlier.  You may be prompted to login to your GitHub account with your credentials.  See screenshot below.  Click **Next**.
+   On the *Code Repository* page, select *GitHub* and this repository which you forked earlier.  You may be prompted to login to your GitHub account with your credentials.  See screenshot below.  Click **Next**.
 
-![alt tag](./images/A-03.PNG)
+   ![alt tag](./images/A-03.PNG)
 
-On the next page, click on **YES** for *Is app Dockerized* as shown below.  Click on **Next**.
+   On the next page, click on **YES** for *Is app Dockerized* as shown below.  Click on **Next**.
 
-![alt tag](./images/A-04.PNG)
+   ![alt tag](./images/A-04.PNG)
 
-On the *Application/Framework* page, select *Web App for Containers* as shown below.
+   On the *Application/Framework* page, select *Web App for Containers* as shown below.
 
-![alt tag](./images/A-05.PNG)
+   ![alt tag](./images/A-05.PNG)
 
-Leave the value of *Dockerfile path* as is and specify **node app.js** as the value for *Startup Command*.  Then click **OK** and **Next**.
+   Leave the value of *Dockerfile path* as is and specify **node app.js** as the value for *Startup Command*.  Then click **OK** and **Next**.
 
-![alt tag](./images/A-06.PNG)
+   ![alt tag](./images/A-06.PNG)
 
-On the *Service* page, create a new or use an existing VSTS organization.  Then give the VSTS project a meaningful name.  Also, select an *Azure Subscription*, give a name for the *Web app* and specify the *Location* where the Azure resources will be deployed. See screenshot below.  Make a note of the *Web app name*.  
+   On the *Service* page, create a new or use an existing VSTS organization.  Then give the VSTS project a meaningful name.  Also, select an *Azure Subscription*, give a name for the *Web app* and specify the *Location* where the Azure resources will be deployed. See screenshot below.  Make a note of the *Web app name*.  
 
-![alt tag](./images/A-07.PNG)
+   ![alt tag](./images/A-07.PNG)
 
-Click on **Done**.  The *DevOps Project* wizard shall execute the following steps
-- Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) instance.
-- Provision and deploy the containerized application to a *Web App for Containers Service on Linux*.  The Web App Service will be provisioned in a App Service Plan ([Web app name]-hostingPlan). Review the *App Service* and *App Service Plan* details in the Azure Portal.
+   Click on **Done**.  The *DevOps Project* wizard shall execute the following steps
+   - Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in VSTS and run the pipelines. The release pipeline will build an application container image and push the image to a new [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) instance.
+   - Provision and deploy the containerized application to a *Web App for Containers Service on Linux*.  The Web App Service will be provisioned in a App Service Plan ([Web app name]-hostingPlan). Review the *App Service* and *App Service Plan* details in the Azure Portal.
 
-2.  Examine the deployed build and release (CI/CD) pipelines in your VSTS account. Review Web App Service (Web app name) resources in Azure using the portal (or CLI).  Also, verify that the application container image got built and pushed to a new *Azure Container Registry (ACR)* instance ([Web app name]xxxx).
+2. Examine the deployed build and release (CI/CD) pipelines in your VSTS account. Review Web App Service (Web app name) resources in Azure using the portal (or CLI).  Also, verify that the application container image got built and pushed to a new *Azure Container Registry (ACR)* instance ([Web app name]xxxx).
 
-3.  The microservice application can now be accessed via a browser at *https://[Web app name].azurewebsites.net*.
+3. The microservice application can now be accessed via a browser at *https://[Web app name].azurewebsites.net*.
 
 4. Use the test scripts in the *test-scripts* folder of this project to fetch, add, update & delete purchase orders.  Update the REST API URLs in the scripts to point to your App Service end-point. The test scripts invoke the REST API's exposed by this Nodejs application.  Invoke the *test-scripts/insert-orders.sh* script from a terminal window (or a browser based REST Client such as Postman or ARC) to create purchase orders in the backend Azure CosmosDB document repository.  Verify the purchase order documents got created/updated/deleted in the Azure CosmosDB database via the Azure portal.  
 
