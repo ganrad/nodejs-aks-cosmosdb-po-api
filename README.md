@@ -1,5 +1,5 @@
-# Use *Azure DevOps Project* to build and deploy a containerized Nodejs *Microservice* 
-This project details the steps for deploying a *Express.js* application using the [Azure DevOps Projects](https://azure.microsoft.com/en-us/features/devops-projects/) PaaS service.  This application exposes a simple REST API for manipulating (CRUD) *Purchase Orders* and the purchase order documents (JSON messages) are persisted in a [Azure CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/) No-SQL database.
+# Use *Azure DevOps Projects* to build and deploy a Nodejs *Microservice* on Azure 
+This project describes the steps for building and deploying a containerized *Node.js* microservice using [Azure DevOps Projects](https://azure.microsoft.com/en-us/features/devops-projects/).  The microservice exposes a simple REST API for manipulating (CRUD) *Purchase Orders* and the purchase order documents (JSON messages) are persisted in a [Azure CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/) No-SQL database.
 
 With Azure DevOps Projects, there are two options for building and deploying a containerized application 
 1.  [Azure App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro).  Refer to **Section [A]** in order to build and deploy this application to [Web App for Containers](https://azure.microsoft.com/en-us/services/app-service/containers/) on Azure App Service.
