@@ -92,7 +92,7 @@ Both options use DevOps CI/CD workflows in VSTS to build and deploy the containe
 
    Click on **Done**.  The *DevOps Projects* wizard shall execute the following steps
    - Provision an Azure Container Registry (ACR) instance (nodejscosmosdbxxxx).
-   - Provision an Azure Kubernetes Service (AKS) instance on Azure (nodejscosmosdb)..
+   - Provision an Azure Kubernetes Service (AKS) instance on Azure (nodejscosmosdb).
    - Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in Visual Studio Team Services (VSTS) and run the pipelines. The build pipeline will build an application container image and push the image to a new *Azure Container Registry* (ACR) instance.  Upon successful execution of the build pipeline, the release pipeline will be triggered. The release pipeline will use [Helm Package Manager](https://helm.sh/) to deploy the application to AKS.  Helm charts provided in this repository will be used to deploy the containerized application to AKS.
 
    It will take approximately 15-20 minutes (maybe more) to provision all the resources in VSTS and AKS.  So be patient and take a coffee break, perhaps treat yourself to a pastry!
