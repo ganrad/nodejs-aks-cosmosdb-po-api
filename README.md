@@ -1,4 +1,4 @@
-# Use *Azure DevOps Projects* to build and deploy a Nodejs *Microservice* on Azure 
+# Build and deploy a Nodejs *Microservice* using *Azure DevOps Projects*
 This project describes the steps for building and deploying a containerized *Node.js* microservice using [Azure DevOps Projects](https://azure.microsoft.com/en-us/features/devops-projects/).  The microservice exposes a simple REST API for manipulating (CRUD) *Purchase Orders* and the purchase order documents (JSON messages) are persisted in a [Azure CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/) No-SQL database.
 
 With Azure DevOps Projects, there are two options for building and deploying a containerized application 
