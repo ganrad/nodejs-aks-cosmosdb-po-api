@@ -86,15 +86,14 @@ Both options use DevOps CI/CD workflows in VSTS to build and deploy the containe
 
    ![alt tag](./images/B-03.PNG)
 
-   Change the *Node count* to **1** and *Kubernetes Version* to **1.8.7**.  You can either leave the other field values as is or change the default values if needed.  Then click **OK**.  See screenshot below.
+   Change the *Node count* to **1** and *Kubernetes Version* to **1.11.2**.  You can either leave the other field values as is or change the default values if needed.  Then click **OK**.  See screenshot below.
 
    ![alt tag](./images/B-04.PNG)
 
-   **NOTE:** The DevOps Projects wizard will specify the latest release of Kubernetes (v1.11.2 at the time of this writing) by default.  You will need to change the version to **1.8.7** otherwise the execution of the CD pipeline will fail (Helm upgrade step).  If you would like to deploy this microservice to the latest Kubernetes version, you will need to update the API *version* numbers for Kubernetes resources in your forked GitHub repository.  The Kubernetes API resource definitions (manifest files) can be found in directory *nodejs-cosmosdb-po-service*.
-
    Click on **Done**.  The *DevOps Projects* wizard shall execute the following steps
-   - Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in VSTS and run the pipelines. The build pipeline will build an application container image and push the image to a new *Azure Container Registry* (ACR) instance.  Upon successful execution of the build pipeline, the release pipeline will be triggered. The release pipeline will use [Helm Package Manager](https://helm.sh/) to deploy the application to AKS.  Helm charts provided in this repository will be used to provision the containerized application to AKS.
-   - Provision an AKS (Azure Kubernetes Service) instance on Azure.
+   - Provision an Azure Container Registry (ACR) instance (nodejscosmosdbxxxx).
+   - Provision an Azure Kubernetes Service (AKS) instance on Azure (nodejscosmosdb)..
+   - Provision build (Continuous Integration) and release (Continuous Deployment) pipelines for the application in Visual Studio Team Services (VSTS) and run the pipelines. The build pipeline will build an application container image and push the image to a new *Azure Container Registry* (ACR) instance.  Upon successful execution of the build pipeline, the release pipeline will be triggered. The release pipeline will use [Helm Package Manager](https://helm.sh/) to deploy the application to AKS.  Helm charts provided in this repository will be used to deploy the containerized application to AKS.
 
    It will take approximately 15-20 minutes (maybe more) to provision all the resources in VSTS and AKS.  So be patient and take a coffee break, perhaps treat yourself to a pastry!
 
@@ -121,4 +120,3 @@ Both options use DevOps CI/CD workflows in VSTS to build and deploy the containe
 Congrats!!  You have successfully explored two options provided by **Azure DevOps Project** PaaS service for automating the build and deployment of a containerized Nodejs application on Azure.
 
 To sum it up, *Azure DevOps Projects* allows application development teams to easily and quickly adopt DevOps (CI and CD) and deploy containerized applications written in a variety of programming languages on Azure.
-
