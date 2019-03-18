@@ -82,7 +82,7 @@ Both options use DevOps CI/CD workflows in Azure DevOps to build and deploy the 
 
    ![alt tag](./images/B-02.PNG)
 
-   On the *Service* page, create a new or use an existing Azure DevOps organization.  (You should already have a Azure DevOps Account!).  Give the DevOps project a meaningful name and select an *Azure Subscription*.  Leave the *Cluster Name* field as is, it should default to the value of the project name.   Specify the *Location* where the Azure resources will be deployed.  Make a note of the *Project name*.  Then click on *Change* as shown in the screen shot below.
+   On the *Service* page, create a new or use an existing Azure DevOps organization.  (You should already have a Azure DevOps Account!).  Give the DevOps project a meaningful name and select an *Azure Subscription*.  Leave the *Cluster Name* field as is, it should default to the value of the project name.   Specify the *Location* where the Azure resources will be deployed.  Make a note of the *Project name*.  Then click on *Additional Settings* as shown in the screen shot below.
 
    ![alt tag](./images/B-03.PNG)
 
